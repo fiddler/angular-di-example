@@ -1,3 +1,14 @@
 {
-  "routes": []
+  "routes": [
+    {
+      "routePath": "/add/...",
+      "component": "AddRoot",
+      "componentPath": "./add/add-root.component"
+    },
+    {
+      "routePath": "/dashboard/...",
+      "component": "DashboardRoot",
+      "componentPath": "./dashboard/dashboard-root.component"
+    }
+  ]
 }

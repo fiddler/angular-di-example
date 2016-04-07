@@ -1,0 +1,13 @@
+<h2>Dashboard List</h2>
+
+<di-nav></di-nav>
+<ul>
+  <li *ngFor="#dashboard of dashboards">
+    <a
+      [routerLink]="['DashboardDetail', { id: dashboard.id }]">
+      <strong>{{dashboard.id}}</strong>
+      -
+      {{dashboard.name}}
+    </a>
+  </li>
+</ul>

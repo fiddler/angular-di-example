@@ -1,0 +1,12 @@
+<h2>Add List</h2>
+
+<ul>
+  <li *ngFor="#add of adds">
+    <a
+      [routerLink]="['AddDetail', { id: add.id }]">
+      <strong>{{add.id}}</strong>
+      -
+      {{add.name}}
+    </a>
+  </li>
+</ul>
