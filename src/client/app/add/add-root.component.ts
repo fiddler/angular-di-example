@@ -2,7 +2,6 @@ import {Component} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 
 import {AddListComponent} from './add-list.component';
-import {AddDetailComponent} from './add-detail.component';
 import {AddService} from './add.service';
 
 @Component({
@@ -11,8 +10,7 @@ import {AddService} from './add.service';
   directives: [RouterOutlet]
 })
 @RouteConfig([
-  {path: '/', name: 'AddList', component: AddListComponent, useAsDefault: true},
-  {path: '/:id', name: 'AddDetail', component: AddDetailComponent}
+  {path: '/', name: 'AddList', component: AddListComponent, useAsDefault: true}
 ])
 export class AddRoot {
   constructor() {}

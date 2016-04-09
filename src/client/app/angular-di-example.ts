@@ -1,12 +1,13 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {CliRouteConfig} from './route-config';
+import {DiNav} from './di-nav/di-nav';
 
 @Component({
   selector: 'angular-di-example-app',
   providers: [ROUTER_PROVIDERS],
   templateUrl: 'app/angular-di-example.html',
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, DiNav],
   pipes: []
 })
 @RouteConfig([
@@ -14,9 +15,4 @@ import {CliRouteConfig} from './route-config';
 ].concat(CliRouteConfig))
 
 export class AngularDiExampleApp {
-  defaultMeaning: number = 42;
-
-  meaningOfLife(meaning?: number) {
-    return `The meaning of life is ${meaning || this.defaultMeaning}`;
-  }
 }

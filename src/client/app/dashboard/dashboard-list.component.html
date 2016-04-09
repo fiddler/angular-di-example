@@ -1,13 +1,11 @@
-<h2>Dashboard List</h2>
+<div class="container">
+  <h2>Dashboard</h2>
+  <p>A nice dashboard full of widgets.</p>
 
-<di-nav></di-nav>
-<ul>
-  <li *ngFor="#dashboard of dashboards">
-    <a
-      [routerLink]="['DashboardDetail', { id: dashboard.id }]">
-      <strong>{{dashboard.id}}</strong>
-      -
-      {{dashboard.name}}
-    </a>
-  </li>
-</ul>
+  <div *ngIf="!(widgets && widgets.length)">
+    <p>No widgets. Create them <a href="/add">here</a>.</p>
+  </div>
+  <template ngFor #widget [ngForOf]="widgets" #i="index">
+    <di-widget class="widget" [title]="widget.title" [value]="widget.value"></di-widget>
+  </template>
+</div>

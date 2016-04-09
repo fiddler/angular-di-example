@@ -1,18 +1,22 @@
 import {Component, OnInit} from 'angular2/core';
-import {Dashboard, DashboardService} from './dashboard.service';
+import {Widget, WidgetService} from '../widgets/widgets';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
-import {DiNav} from '../di-nav/di-nav';
+import {DiWidget} from '../di-widget/di-widget';
 
 @Component({
   templateUrl: 'app/dashboard/dashboard-list.component.html',
   styleUrls: ['app/dashboard/dashboard-list.component.css'],
-  directives: [ROUTER_DIRECTIVES, DiNav]
+  providers: [],
+  directives: [ROUTER_DIRECTIVES, DiWidget],
+  bindings: [WidgetService],
+  pipes: []
 })
+
 export class DashboardListComponent implements OnInit {
-  dashboards: Dashboard[];
+  widgets: Widget[];
   constructor(
-    private _service: DashboardService) {}
+    private _widgetService: WidgetService) {}
   ngOnInit() {
-    this._service.getAll().then(dashboards => this.dashboards = dashboards);
+    this._widgetService.getAll().then(widgets => this.widgets = widgets);
   }
 }

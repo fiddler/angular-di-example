@@ -1,17 +1,26 @@
 import {Component, OnInit} from 'angular2/core';
-import {Add, AddService} from './add.service';
+import {Widget, WidgetService} from '../widgets/widgets';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
+import {DiWidget} from '../di-widget/di-widget';
 
 @Component({
   templateUrl: 'app/add/add-list.component.html',
   styleUrls: ['app/add/add-list.component.css'],
-  directives: [ROUTER_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES, DiWidget],
+  bindings: [WidgetService]
 })
 export class AddListComponent implements OnInit {
-  adds: Add[];
+  value: '';
+  title: '';
   constructor(
-    private _service: AddService) {}
+    private _widgetService: WidgetService) {}
   ngOnInit() {
-    this._service.getAll().then(adds => this.adds = adds);
+  }
+  addWidget() {
+    this._widgetService.add(this.title, this.value);
+
+    // Clear fields
+    this.title = '';
+    this.value = '';
   }
 }

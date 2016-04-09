@@ -2,7 +2,6 @@ import {Component} from 'angular2/core';
 import {RouteConfig, RouterOutlet} from 'angular2/router';
 
 import {DashboardListComponent} from './dashboard-list.component';
-import {DashboardDetailComponent} from './dashboard-detail.component';
 import {DashboardService} from './dashboard.service';
 
 @Component({
@@ -11,8 +10,7 @@ import {DashboardService} from './dashboard.service';
   directives: [RouterOutlet]
 })
 @RouteConfig([
-  {path: '/', name: 'DashboardList', component: DashboardListComponent, useAsDefault: true},
-  {path: '/:id', name: 'DashboardDetail', component: DashboardDetailComponent}
+  {path: '/', name: 'DashboardList', component: DashboardListComponent, useAsDefault: true}
 ])
 export class DashboardRoot {
   constructor() {}

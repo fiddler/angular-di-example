@@ -10,7 +10,5 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   pipes: []
 })
 export class DiNav {
-
   constructor() {}
-
 }
